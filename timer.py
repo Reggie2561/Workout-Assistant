@@ -3,7 +3,7 @@ import time
 import sys
 from notify import Notification
 class timer:
-    def start(self, s, Countdown=None):
+    def start(self, s, Countdown=None, notifcation=False):
         if Countdown == True:
             num = 0
             while num <= s:
@@ -13,7 +13,8 @@ class timer:
                 time.sleep(1)
                 sys.stdout.write('\r' * len(f"{s-num}s left"))
                 sys.stdout.flush()
-                Notification().send(title="Timer in python", content=f"{s-num}s left", length=1.5)
+                if notifcation == True:
+                    Notification().send(title="Timer in python", content=f"{s-num}s left", length=1.5)
 
         else:
             start = time.perf_counter()

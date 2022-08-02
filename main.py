@@ -1,11 +1,11 @@
 import os
-import sys
+import time
 
 from timer import timer
 import platform
 from workout import session
 from notify import Notification
-
+import sys
 totalTime = 0
 
 
@@ -37,6 +37,20 @@ def main():
 (8) Running [NOT AVAILABLE YET]
 """)
         o = input("Option: ")
+        workout = session(148)
+        if o == "1":
+            reps = workout.pushup(34)
+
+            for i in reps[0]:
+                sys.stdout.write(f"Pushing weight is {reps[1]}lbs\n")
+                sys.stdout.write(f"Do {i} pushups\n")
+                sys.stdout.write(f"Enter When Done\n")
+                input("")
+
+                if i == 5:
+                    break
+                sys.stdout.write("Starting 1:30 timer")
+                t.start(90, Countdown=True, notifcation=True)
     elif o == "2":
         Time = input("Time [00:00]: ")
         conTime = t.convert(Time)
