@@ -1,6 +1,7 @@
 import os
 import time
-
+import subprocess
+import json
 from timer import timer
 import platform
 from workout import session
@@ -34,7 +35,7 @@ def main():
 (5) Squats [NOT AVAILABLE YET]
 (6) Forearm Curls [NOT AVAILABLE YET]
 (7) Shoulders [NOT AVAILABLE YET]
-(8) Running [NOT AVAILABLE YET]
+(8) Running [Termux]
 """)
         o = input("Option: ")
         workout = session(148)
@@ -49,8 +50,33 @@ def main():
 
                 if i == 5:
                     break
-                sys.stdout.write("Starting 1:30 timer")
+                sys.stdout.write("Starting 1:30 timer\n")
                 t.start(90, Countdown=True, notifcation=True)
+        if o == "8":
+            stats = []
+            pause = False
+            print("Press CTRL C to pause")
+            while True:
+                try:
+                    if pause == True:
+                        value = input("Press enter to continue\nOr type stop to see run stats")
+                        if value.lower() == "stop":
+                            break
+                        pause = False
+                    loc_data = subprocess.run(["termux-location", ], capture_output=True)
+
+                    data = json.loads(loc_data.stdout.decode())
+
+                    lat = data["latitude"]
+                    lon = data["longitude"]
+                    altitude = data["altitude"]
+                    speed = data["speed"]
+
+                    time.sleep(1)
+                    stats.append([lat,lon,altitude,speed])
+                except KeyboardInterrupt:
+                    pause = True
+        print(stats)
     elif o == "2":
         Time = input("Time [00:00]: ")
         conTime = t.convert(Time)
