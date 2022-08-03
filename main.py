@@ -53,30 +53,10 @@ def main():
                 sys.stdout.write("Starting 1:30 timer\n")
                 t.start(90, Countdown=True, notifcation=True)
         if o == "8":
-            stats = []
-            pause = False
-            print("Press CTRL C to pause")
-            while True:
-                try:
-                    if pause == True:
-                        value = input("Press enter to continue\nOr type stop to see run stats")
-                        if value.lower() == "stop":
-                            break
-                        pause = False
-                    loc_data = subprocess.run(["termux-location", ], capture_output=True)
-
-                    data = json.loads(loc_data.stdout.decode())
-
-                    lat = data["latitude"]
-                    lon = data["longitude"]
-                    altitude = data["altitude"]
-                    speed = data["speed"]
-
-                    time.sleep(1)
-                    stats.append([lat,lon,altitude,speed])
-                except KeyboardInterrupt:
-                    pause = True
-        print(stats)
+            os.system(clear)
+            results = workout.running()
+            for item in results:
+                print(item)
     elif o == "2":
         Time = input("Time [00:00]: ")
         conTime = t.convert(Time)
