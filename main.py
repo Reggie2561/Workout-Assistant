@@ -1,11 +1,7 @@
 import os
-import time
-import subprocess
-import json
 from timer import timer
 import platform
 from workout import session
-from notify import Notification
 import sys
 totalTime = 0
 
@@ -39,11 +35,13 @@ def main():
 """)
         o = input("Option: ")
         workout = session(148)
-        if o == "1":
-            reps = workout.pushup(34)
 
-            for i in reps[0]:
-                sys.stdout.write(f"Pushing weight is {reps[1]}lbs\n")
+
+        if o == "1":
+            set = workout.pushup(34)
+
+            for i in set[0]:
+                sys.stdout.write(f"Pushing weight is {set[1]}lbs\n")
                 sys.stdout.write(f"Do {i} pushups\n")
                 sys.stdout.write(f"Enter When Done\n")
                 input("")
@@ -51,12 +49,62 @@ def main():
                 if i == 5:
                     break
                 sys.stdout.write("Starting 1:30 timer\n")
-                t.start(90, Countdown=True, notifcation=True)
-        if o == "8":
+                workout.rest("1:30")
+
+
+        elif o == "2":
+            Time = input("How long of a plank? [0:00]: ")
+            input("PRESS ENTER TO START...")
+            workout.plank(Time)
+
+
+        elif o == "3":
+            max = input("Max amount Pullups you can do: ")
+            set = workout.pullups(int(max))
+
+            for rep in set:
+                sys.stdout.write(f"Pulling weight is {workout.weight}\nDo {rep} pullups\nEnter When Done\n")
+                sys.stdout.flush()
+                input("")
+                sys.stdout.write("Starting 1:30 timer\n")
+
+                workout.rest("1:30")
+
+
+        elif o == "4":
+            pass
+
+
+        elif o == "5":
+            max = input("Max amount of squats you can do: ")
+
+            set = workout.squats(int(max))
+
+            for rep in set[0]:
+                sys.stdout.write(f"Lifting weight is {max[1]}lbs\nDo {rep} squats\nEnter When Done\n")
+                sys.stdout.flush()
+                input("")
+                sys.stdout.write("Starting 1:30 timer\n")
+
+                workout.rest("1:30")
+
+
+        elif o == "6":
+            pass
+
+
+        elif o == "7":
+            pass
+
+
+        elif o == "8":
             os.system(clear)
             results = workout.running()
             for item in results:
                 print(item)
+
+        input("Press ENTER to continue")
+        main()
     elif o == "2":
         Time = input("Time [00:00]: ")
         conTime = t.convert(Time)

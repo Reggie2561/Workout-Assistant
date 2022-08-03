@@ -14,7 +14,7 @@ class session:
             sets.append(random.randint(round(0.65*max), max))
         return [sets, round(pushingWieght)]
 
-    def Pullups(self, max):
+    def pullups(self, max):
         sets = []
         for _ in range(5):
             sets.append(random.randint(round(0.60 * max), max))
@@ -24,6 +24,12 @@ class session:
         t = timer()
         conTime = t.convert(Time)
         t.start(conTime, Countdown=True)
+
+    def squats(self, max):
+        sets = []
+        for _ in range(5):
+            sets.append([random.randint(round(0.75 * max), max)], self.weight*0.75)
+        return sets
 
     def running(self):
         stats = []
@@ -59,4 +65,4 @@ class session:
     def rest(self, Time="1:30"):
         t = timer()
         conTime = t.convert(Time)
-        t.start(conTime, Countdown=True)
+        t.start(conTime, Countdown=True, notifcation=True)
