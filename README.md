@@ -1,7 +1,7 @@
 # Workout-Assistant
 A Workout program that respects your privacy
 
-# Working Fetures
+Working Fetures
 ===================================
 Pushups<br/>
 Pullups<br/>
@@ -10,7 +10,7 @@ Squats<br/>
 Running [Termux]<br/>
 ===================================
 
-# In Development 
+In Development 
 ===================================
 ~~Pushups~~<br/>
 ~~Pullups~~<br/>
