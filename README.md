@@ -14,8 +14,8 @@ In Development
 ~~Pushups~~
 ~~Pullups~~
 ~~Planks~~
-Bicep Curls
-Squats
+Bicep Curls\n
+Squats\n
 Forearm Curls
 Shoulders
 ~~Running~~
