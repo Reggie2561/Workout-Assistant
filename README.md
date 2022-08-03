@@ -6,7 +6,7 @@ Working Fetures
 Pushups<br/>
 Pullups<br/>
 Planks<br/>
-Running<br/>
+Running [Termux]<br/>
 ===================================
 
 In Development 
