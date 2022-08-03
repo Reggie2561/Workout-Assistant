@@ -3,20 +3,20 @@ A Workout program that respects your privacy
 
 Working Fetures
 ===================================
-Pushups
-Pullups
-Planks
-Running
+Pushups<br/>
+Pullups<br/>
+Planks<br/>
+Running<br/>
 ===================================
 
 In Development 
 ===================================
-~~Pushups~~
-~~Pullups~~
-~~Planks~~
-Bicep Curls\n
-Squats\n
-Forearm Curls
-Shoulders
-~~Running~~
+~~Pushups~~<br/>
+~~Pullups~~<br/>
+~~Planks~~<br/>
+Bicep Curls<br/>
+Squats<br/>
+Forearm Curls<br/>
+Shoulders<br/>
+~~Running~~<br/>
 ===================================
