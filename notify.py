@@ -15,5 +15,5 @@ class Notification:
             except Exception as e:
                 print(e)
         else:
-            os.system(f"termux-notification -t {title} -c {content} --alert-once --priority {priority}")
+            os.system(f"termux-notification -t '{title}' -c '{content}' --alert-once")
             os.system(f"notify-send '{title}', '{content}'")
